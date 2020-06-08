@@ -30,6 +30,13 @@ Manual de Integração
 - **message**, mensagem do lead
 - **profile**, objeto contendo o perfil de busca (**EM TESTES**)
 
+## Retornos da aplicação
+|Status|Descrição|
+|-:|-|
+|201|Sucesso|
+|40x|Problemas na validação dos dados enviados|
+|50x|Problema de Token ou Problema Genérico|
+
 ## Exemplo CURL
 ```shell
 curl -X POST \
