@@ -41,7 +41,7 @@ Manual de Integração
 ```shell
 curl -X POST \
   __ENDPOINT_CLIENTE__ \
-  -H 'Authorization: JWT __TOKEN_CLIENTE__' \
+  -H 'Authorization: Bearer __TOKEN_CLIENTE__' \
   -H 'Content-Type: application/json' \
   -H 'User-Agent: Nido/1.0.0 Decussi/1.0.0' \
   -d '{
