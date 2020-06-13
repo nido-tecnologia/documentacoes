@@ -80,7 +80,7 @@ xhr.addEventListener("readystatechange", function () {
 });
 
 xhr.open("POST", "__ENDPOINT_CLIENTE__");
-xhr.setRequestHeader("Authorization", "JWT __TOKEN_CLIENTE__");
+xhr.setRequestHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
 xhr.setRequestHeader("User-Agent", "Nido/1.0.0 Decussi/1.0.0");
 xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -108,7 +108,7 @@ $body = json_encode(array(
 $request->setHeaders(array(
   'Content-Type' => 'application/json',
   'User-Agent' => 'Nido/1.0.0 Decussi/1.0.0',
-  'Authorization' => 'JWT __TOKEN_CLIENTE__'
+  'Authorization' => 'Bearer __TOKEN_CLIENTE__'
 ));
 
 $request->setBody($body);
@@ -129,7 +129,7 @@ var request = new RestRequest(Method.POST);
 
 request.AddHeader("Content-Type", "application/json");
 request.AddHeader("User-Agent", "Nido/1.0.0 Decussi/1.0.0");
-request.AddHeader("Authorization", "JWT __TOKEN_CLIENTE__");
+request.AddHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
 
 var body = new {
     "id" = "1598457",
