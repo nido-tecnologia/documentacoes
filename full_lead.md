@@ -10,7 +10,8 @@ Manual de Integração
 
 ## Métodos
 
-- `GET {__ENDPOINT_CLIENTE__}/leadOrigin`, metodo que lista todas as origens possíveis para um novo cadastro de Lead
+- `GET {__ENDPOINT_CLIENTE__}/leadOrigin`, método que lista todas as origens possíveis para um novo cadastro de Lead
+- `GET {__ENDPOINT_CLIENTE__}/SchedulingTypes`, método que lista todos os tipos de agendamentos possíveis para uma nova solicitação de Agendamento
 - `POST {__ENDPOINT_CLIENTE__}/fullLead`, método para o cadastro de um novo Lead
 
 ## Segurança
@@ -29,6 +30,12 @@ Manual de Integração
 - **property_id**, referência do imóvel, ex: XX1234
 - **message**, mensagem do lead
 - **profile**, objeto contendo o perfil de busca (**EM TESTES**)
+
+## Campos do JSON para nova solicitação de Agendamento
+Repete os campos obrigatórios para um novo Lead e adiciona obrigatoriamente os campos listados abaixo.
+
+- **scheduling_date**, data e hora da solicitação de agendamento,  *YYYY-MM-DD HH:MM:SS*
+- **scheduling_type**, código do tipo de agendamento (Visita, Fotos, etc), opções são obtidas através do endpoint ***SchedulingTypes***
 
 ## Retornos da aplicação
 |Status|Descrição|
