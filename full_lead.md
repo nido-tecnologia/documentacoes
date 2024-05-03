@@ -50,7 +50,7 @@ curl -X POST \
   __ENDPOINT_CLIENTE__ \
   -H 'Authorization: Bearer __TOKEN_CLIENTE__' \
   -H 'Content-Type: application/json' \
-  -H 'User-Agent: Nido/1.0.0 Decussi/1.0.0' \
+  -H 'User-Agent: Nido/1.0.0' \
   -d '{
   "id": "1598457",
   "origin_id": "8",
@@ -88,7 +88,7 @@ xhr.addEventListener("readystatechange", function () {
 
 xhr.open("POST", "__ENDPOINT_CLIENTE__");
 xhr.setRequestHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
-xhr.setRequestHeader("User-Agent", "Nido/1.0.0 Decussi/1.0.0");
+xhr.setRequestHeader("User-Agent", "Nido/1.0.0");
 xhr.setRequestHeader("Content-Type", "application/json");
 
 xhr.send(JSON.stringify(data));
@@ -114,7 +114,7 @@ $body = json_encode(array(
 
 $request->setHeaders(array(
   'Content-Type' => 'application/json',
-  'User-Agent' => 'Nido/1.0.0 Decussi/1.0.0',
+  'User-Agent' => 'Nido/1.0.0',
   'Authorization' => 'Bearer __TOKEN_CLIENTE__'
 ));
 
@@ -135,7 +135,7 @@ var client = new RestClient("__ENDPOINT_CLIENTE__");
 var request = new RestRequest(Method.POST);
 
 request.AddHeader("Content-Type", "application/json");
-request.AddHeader("User-Agent", "Nido/1.0.0 Decussi/1.0.0");
+request.AddHeader("User-Agent", "Nido/1.0.0");
 request.AddHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
 
 var body = new {
@@ -160,7 +160,7 @@ curl -X POST \
   __ENDPOINT_CLIENTE__ \
   -H 'Authorization: Bearer __TOKEN_CLIENTE__' \
   -H 'Content-Type: application/json' \
-  -H 'User-Agent: Nido/1.0.0 Decussi/1.0.0' \
+  -H 'User-Agent: Nido/1.0.0' \
   -d '{
   "id": "1598457",
   "origin_id": "8",
@@ -202,7 +202,7 @@ xhr.addEventListener("readystatechange", function () {
 
 xhr.open("POST", "__ENDPOINT_CLIENTE__");
 xhr.setRequestHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
-xhr.setRequestHeader("User-Agent", "Nido/1.0.0 Decussi/1.0.0");
+xhr.setRequestHeader("User-Agent", "Nido/1.0.0");
 xhr.setRequestHeader("Content-Type", "application/json");
 
 xhr.send(JSON.stringify(data));
@@ -230,7 +230,7 @@ $body = json_encode(array(
 
 $request->setHeaders(array(
   'Content-Type' => 'application/json',
-  'User-Agent' => 'Nido/1.0.0 Decussi/1.0.0',
+  'User-Agent' => 'Nido/1.0.0',
   'Authorization' => 'Bearer __TOKEN_CLIENTE__'
 ));
 
@@ -251,7 +251,7 @@ var client = new RestClient("__ENDPOINT_CLIENTE__");
 var request = new RestRequest(Method.POST);
 
 request.AddHeader("Content-Type", "application/json");
-request.AddHeader("User-Agent", "Nido/1.0.0 Decussi/1.0.0");
+request.AddHeader("User-Agent", "Nido/1.0.0");
 request.AddHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
 
 var body = new {
