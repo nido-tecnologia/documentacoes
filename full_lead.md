@@ -29,6 +29,7 @@ Manual de Integração
 - **mobile**, celular do cliente
 - **property_id**, referência do imóvel, ex: XX1234
 - **message**, mensagem do lead
+- **broker**, email ou código interno do corretor que vai atender o lead (**parâmetro opcional, se não enviado segue regras internas de direcionamento**)
 - **profile**, objeto contendo o perfil de busca (**EM TESTES**)
 
 ## Campos do JSON para nova solicitação de Agendamento
@@ -61,6 +62,7 @@ curl -X POST \
   "mobile": "+55 11 98080-8080",
   "property_id": "NI1234",
   "message": "Olá vi o imóvel NI1234 no seu site",
+  "broker": "corretor@imobiliaria.com.br",
 }'
 ```
 ## Exemplo Javascript | Novo Lead
@@ -75,6 +77,7 @@ var data = {
    "mobile": "+55 11 98080-8080",
    "property_id": "NI1234",
    "message": "Olá vi o imóvel NI1234 no seu site",
+   "broker": "corretor@imobiliaria.com.br",
 };
 
 var xhr = new XMLHttpRequest();
@@ -110,6 +113,7 @@ $body = json_encode(array(
     "mobile" => "+55 11 98080-8080",
     "property_id" => "NI1234",
     "message" => "Olá vi o imóvel NI1234 no seu site",
+    "broker" => "corretor@imobiliaria.com.br",
 ));
 
 $request->setHeaders(array(
@@ -147,7 +151,8 @@ var body = new {
    "phone" = "+55 11 3030-2020",
    "mobile" = "+55 11 98080-8080",
    "property_id" = "NI1234",
-   "message" = "Olá vi o imóvel NI1234 no seu site"
+   "message" = "Olá vi o imóvel NI1234 no seu site",
+   "broker" = "corretor@imobiliaria.com.br"
 };
 
 request.AddParameter("undefined", JsonConvert.SerializeObject(body), ParameterType.RequestBody);
