@@ -117,11 +117,12 @@ curl -X GET \
 **Descrição:**
 Permite a abertura de uma ocorrência vinculada a um participante.
 
-**Parâmetros do corpo (x-www-form-urlencoded):**
+**Parâmetros do corpo (JSON):**
 
 - `user_id` *(string, obrigatório)* → ID do contrato.
 - `incident_type_id` *(string, obrigatório)* → ID do tipo da ocorrência.
 - `summary` *(string, obrigatório)* → Assunto da ocorrência.
+- `description` *(string)* → Mensagem da ocorrência.
 
 #### Exemplo de retorno:
 
