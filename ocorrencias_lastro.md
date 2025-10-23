@@ -117,12 +117,16 @@ curl -X GET \
 **Descrição:**
 Permite a abertura de uma ocorrência vinculada a um participante.
 
+### `A PEDIDO DA LASTRO, OS CAMPOS SUMMARY E DESCRIPTION FORAM TROCADOS`
+
+O campo description que originalmente era usado para a descrição da ocorrência, passou a ser usado para o assunto (não obrigatório - preenchido automaticamente com "Ocorrência Lais") e o campo summary que originalmente era usado para o assunto, passou a ser usado para o preenchimento do conteúdo da ocorrência. 
+
 **Parâmetros do corpo (JSON):**
 
 - `user_id` *(string, obrigatório)* → ID do contrato.
 - `incident_type_id` *(string, obrigatório)* → ID do tipo da ocorrência.
-- `summary` *(string, obrigatório)* → Assunto da ocorrência.
-- `description` *(string)* → Mensagem da ocorrência.
+- `summary` *(string, obrigatório)* → Mensagem da ocorrência.
+- `description` *(string)* → Assunto da ocorrência.
 
 #### Exemplo de retorno:
 
