@@ -119,7 +119,7 @@ Permite a abertura de uma ocorrência vinculada a um participante.
 
 ### `A PEDIDO DA LASTRO, OS CAMPOS SUMMARY E DESCRIPTION FORAM TROCADOS`
 
-O campo description que originalmente era usado para a descrição da ocorrência, passou a ser usado para o assunto (não obrigatório - preenchido automaticamente com "Ocorrência Lais") e o campo summary que originalmente era usado para o assunto, passou a ser usado para o preenchimento do conteúdo da ocorrência. 
+O campo description que originalmente era usado para a descrição da ocorrência, passou a ser usado para o assunto (não obrigatório - preenchido automaticamente com "Ocorrência Lais") e o campo summary que originalmente era usado para o assunto, passou a ser usado para o preenchimento do conteúdo da ocorrência. 
 
 **Parâmetros do corpo (JSON):**
 
