@@ -35,32 +35,32 @@ Manual de Integração
 
 ## Lista de origens disponíveis para cadastro e uso
 
-```php
-$origensValidas = [
-  "GRUPOZAP" => "GrupoZapLais",
-  "WHATSAPP" => "WhatsAppLais",
-  "CHAVES_NA_MAO" => "ChavesNaMaoLais",
-  "SITE_PROPRIO" => "PropWebsiteLais",
-  "FACEBOOK_ADS" => "FacebookAdsLais",
-  "INSTAGRAM_ADS" => "InstagramAdsLais",
-  "GOOGLE_ADS" => "GoogleAdsLais",
-  "RECICLA" => "ReachOutLais",
-  "EMAIL" => "PropEmailLais",
-  "RD_STATION" => "RDStationLais",
-  "PROPRIETARIOS" => "PropertyOwnerLais",
-  "CASA_MINEIRA" => "CasaMineiraLais",
-  "IMOVEL_WEB" => "ImovelWebLais",
-  "DF_IMOVEIS" => "DFimoveisLais",
-  "PLACAS" => "PlacaLais",
-  "SUB100" => "Sub100Lais",
-  "ROCKET_IMOB" => "RocketImobLais",
-  "IMOBLIST" => "ImoblistLais",
-  "W_IMOVEIS" => "WimoveisLais",
-  "L4S" => "L4SLais",
-  "CLIQUEI_MUDEI" => "CliqueiMudeiLais",
-  "MAPPO" => "MappoLais",
-  "123_IMOVEIS" => "123ImoveisLais",
-];
+```json
+{
+  "GRUPOZAP": "GrupoZapLais",
+  "WHATSAPP": "WhatsAppLais",
+  "CHAVES_NA_MAO": "ChavesNaMaoLais",
+  "SITE_PROPRIO": "PropWebsiteLais",
+  "FACEBOOK_ADS": "FacebookAdsLais",
+  "INSTAGRAM_ADS": "InstagramAdsLais",
+  "GOOGLE_ADS": "GoogleAdsLais",
+  "RECICLA": "ReachOutLais",
+  "EMAIL": "PropEmailLais",
+  "RD_STATION": "RDStationLais",
+  "PROPRIETARIOS": "PropertyOwnerLais",
+  "CASA_MINEIRA": "CasaMineiraLais",
+  "IMOVEL_WEB": "ImovelWebLais",
+  "DF_IMOVEIS": "DFimoveisLais",
+  "PLACAS": "PlacaLais",
+  "SUB100": "Sub100Lais",
+  "ROCKET_IMOB": "RocketImobLais",
+  "IMOBLIST": "ImoblistLais",
+  "W_IMOVEIS": "WimoveisLais",
+  "L4S": "L4SLais",
+  "CLIQUEI_MUDEI": "CliqueiMudeiLais",
+  "MAPPO": "MappoLais",
+  "123_IMOVEIS": "123ImoveisLais"
+}
 ```
 
 ### Observação
