@@ -59,7 +59,8 @@ Manual de Integração
   "L4S": "L4S",
   "CLIQUEI_MUDEI": "CliqueiMudei",
   "MAPPO": "Mappo",
-  "123_IMOVEIS": "123i"
+  "123_IMOVEIS": "123i",
+  "A_B_C_IMOVEL": "ABC Imóvel",
 }
 ```
 
