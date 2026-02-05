@@ -37,29 +37,29 @@ Manual de Integração
 
 ```json
 {
-  "GRUPOZAP": "GrupoZap",
+  "GRUPOZAP": ["GrupoZap", "Grupo Zap"],
   "WHATSAPP": "WhatsApp",
   "CHAVES_NA_MAO": "Chaves na Mão",
-  "SITE_PROPRIO": "Meu site",
+  "SITE_PROPRIO": ["Site Empresa", "SiteEmpresa", "Site Próprio", "Site"],
   "FACEBOOK_ADS": "Facebook",
   "INSTAGRAM_ADS": "Instagram",
   "GOOGLE_ADS": "Google Ads",
   "RECICLA": "Recicla",
   "EMAIL": "Email",
-  "RD_STATION": "RDStation",
+  "RD_STATION": ["RDStation", "RD Station"],
   "PROPRIETARIOS": "Proprietários",
-  "CASA_MINEIRA": "Casa mineira",
-  "IMOVEL_WEB": "IMOVELWEB",
-  "DF_IMOVEIS": "DF Imóveis",
+  "CASA_MINEIRA": "Casa Mineira",
+  "IMOVEL_WEB": ["Imovelweb", "Imovel Web"],
+  "DF_IMOVEIS": ["DF Imóveis", "DFImoveis"],
   "PLACAS": "Placa",
   "SUB100": "SUB100",
   "ROCKET_IMOB": "Rocket Imob",
   "IMOBLIST": "Imoblist",
-  "W_IMOVEIS": "WImoveis",
+  "W_IMOVEIS": ["W Imóveis", "WImoveis"],
   "L4S": "L4S",
-  "CLIQUEI_MUDEI": "CliqueiMudei",
+  "CLIQUEI_MUDEI": ["CliqueiMudei", "Cliquei Mudei"],
   "MAPPO": "Mappo",
-  "123_IMOVEIS": "123i",
+  "123_IMOVEIS": ["123i", "Portal 123i"],
   "A_B_C_IMOVEL": "ABC Imóvel",
   "NET_IMOVEIS": "Netimóveis",
   "META": "Meta",
@@ -86,7 +86,7 @@ Manual de Integração
   "GUIA_DE_IMOVEIS_OSASCO": "Guia de Imóveis Osasco",
   "GUIA_DE_IMOVEIS_S_P": "Guia de Imóveis SP",
   "GUIA_DE_IMOVEIS_A_B_C": "Guia de Imóveis ABC",
-  "GUIA_DE_IMOVEIS": "Guia de Imóveis",
+  "GUIA_DE_IMOVEIS": "Guia de Imóveis"
 }
 ```
 
