@@ -86,7 +86,8 @@ Manual de Integração
   "GUIA_DE_IMOVEIS_OSASCO": "Guia de Imóveis Osasco",
   "GUIA_DE_IMOVEIS_S_P": "Guia de Imóveis SP",
   "GUIA_DE_IMOVEIS_A_B_C": "Guia de Imóveis ABC",
-  "GUIA_DE_IMOVEIS": "Guia de Imóveis"
+  "GUIA_DE_IMOVEIS": "Guia de Imóveis",
+  "CHATSLAIS": "ChatsLais",
 }
 ```
 
