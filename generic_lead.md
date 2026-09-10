@@ -11,7 +11,7 @@ Manual de Integração
 
 ## Métodos
 
-- `POST {__ENDPOINT_CLIENTE__}/genericLead`, método para o cadastro de um novo Lead Lais
+- `POST {__ENDPOINT_CLIENTE__}/genericLead`, método para o cadastro de um novo Lead
 
 ## Segurança
 
