@@ -92,7 +92,7 @@ Manual de Integração
 
 ### Observação
 
-- Para adicionar novos tipos de origens será necessário entrar em contato com o atendimento da Nido.
+- Caso a origem informada ainda não possua um tipo de origem cadastrado, o sistema realizará o cadastro automaticamente da origem informada como Ativo.
 
 ## Campos do JSON para nova solicitação de Agendamento
 
