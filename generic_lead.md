@@ -11,7 +11,6 @@ Manual de Integração
 
 ## Métodos
 
-- `GET {__ENDPOINT_CLIENTE__}/leadOrigin`, método que lista todas as origens possíveis para um novo cadastro de Lead
 - `POST {__ENDPOINT_CLIENTE__}/genericLead`, método para o cadastro de um novo Lead Lais
 
 ## Segurança
@@ -92,6 +91,7 @@ Manual de Integração
 ```
 
 ### Observação
+
 - Para adicionar novos tipos de origens será necessário entrar em contato com o atendimento da Nido.
 
 ## Campos do JSON para nova solicitação de Agendamento
