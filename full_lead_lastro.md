@@ -17,7 +17,7 @@ Manual de Integração
 ## Segurança
 
 - **Token JWT**, obrigatório utilização como autenticação
-- **User-Agent**, obrigatório utilização do agente **Nido** no cabeçalho da requisição
+- **User-Agent**, obrigatório utilização do agente **Lastro-Core** no cabeçalho da requisição
 
 ## Campos do JSON para novo Lead
 
