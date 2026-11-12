@@ -4,15 +4,15 @@ Manual de Integração
 
 ## Itens necessários
 
-- \_\_ENDPOINT_CLIENTE__
-  - Ex: http://sistemadocliente.nidoimovel.com.br/index.php/api
-- \_\_TOKEN_CLIENTE__
+- \_\_ENDPOINT_CLIENTE\_\_
+  - Ex: <http://sistemadocliente.nidoimovel.com.br/index.php/api>
+- \_\_TOKEN_CLIENTE\_\_
   - Token JWT, Ex: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9uaWRvLmNvbS5iciIsImF1ZCI6Imh0dHA6XC9cL25pZG9pbW92ZWwuY29tLmJyIiwiaWF0IjoxNTQ2MzA4MDAwLCJuYmYiOjE1NDYzMDgwMDAsImRhdGEiOnsiY2xpZW50ZV9pZCI6IjMxIiwiY29kYWdlbmNpYSI6Ik5JIiwid2ViX2NvbmZpZ19pZCI6IjgyIn19.VARfNYjb9yIY7pB01HcUJipMC1HEnaG028307Elfz1s
 
 ## Métodos
 
 - `GET {__ENDPOINT_CLIENTE__}/leadOrigin`, método que lista todas as origens possíveis para um novo cadastro de Lead
-- `POST {__ENDPOINT_CLIENTE__}/fullLeadLais`, método para o cadastro de um novo Lead Lais
+- `POST {__ENDPOINT_CLIENTE__}/fullLeadLais`, método para o cadastro de um novo Lead Lais, aceitando os formatos **legado** e **Lastro Connector**
 
 ## Segurança
 
@@ -23,7 +23,7 @@ Manual de Integração
 
 - **id**, identificador do lead no site
 - **origin_id**, descrição da origem do Lead (Listagem com exemplos abaixo)
-- **created_at**, data de criação do lead, formato *YYYY-MM-DD HH:MM:SS*
+- **created_at**, data de criação do lead, formato _YYYY-MM-DD HH:MM:SS_
 - **name**, nome do cliente
 - **email**, email do cliente
 - **phone**, telefone do cliente
@@ -32,6 +32,43 @@ Manual de Integração
 - **message**, mensagem do lead
 - **broker**, email ou código interno do corretor que vai atender o lead (**parâmetro opcional, se não enviado segue regras internas de direcionamento**)
 - **profile**, objeto contendo o perfil de busca (**EM TESTES**)
+
+## Compatibilidade com a Lastro Connector
+
+O endpoint `fullLeadLais` aceita os dois formatos de payload no mesmo endereço, com a mesma autenticação (Token JWT e User-Agent).
+
+- **Legado:** identificado por `origin_id` (e `phone`/`mobile`).
+- **Lastro Connector:** identificado por `origin` ou `number`.
+
+Quando o payload traz `origin` ou `number`, os campos abaixo são lidos no lugar dos equivalentes legados:
+
+| Legado             | Lastro Connector          |
+| ------------------ | ------------------------- |
+| `origin_id`        | `origin`                  |
+| `phone` / `mobile` | `number`                  |
+| `property_id`      | `client_listing_id`       |
+| `message`          | `conversation_summary`    |
+| `scheduling_date`  | `visit_request_date_time` |
+
+Campos adicionais aceitos no formato Lastro Connector e gravados no `extra` do lead: `link`, `portal_listing_id`, `conversation_history`, `transaction_type`, `delivery_triggered_by`, `visit_request_date_time_options`, `credit_analysis` e os dados do imóvel `area`, `type`, `bedrooms`, `bathrooms`, `price_rent`, `price_buy`, `neighborhood`, `parking_spaces`, `city`. Campos de UTM (`google_*` e `facebook_*`) também são gravados no `extra`.
+
+As origens podem vir com ou sem o sufixo `Lais` (ex.: `GrupoZapLais`, `ImovelWebLais`, `ChatsLais`).
+
+Exemplo mínimo no formato Lastro Connector:
+
+```json
+{
+  "id": "1598457",
+  "origin": "GrupoZapLais",
+  "created_at": "2019-01-01 15:59:59",
+  "name": "João da Silva",
+  "email": "joao@meusite.com.br",
+  "number": "+55 11 98080-8080",
+  "client_listing_id": "NI1234",
+  "conversation_summary": "Olá vi o imóvel NI1234 no seu site",
+  "transaction_type": "rent"
+}
+```
 
 ## Lista de origens disponíveis para cadastro e uso
 
@@ -87,7 +124,7 @@ Manual de Integração
   "GUIA_DE_IMOVEIS_S_P": "Guia de Imóveis SP",
   "GUIA_DE_IMOVEIS_A_B_C": "Guia de Imóveis ABC",
   "GUIA_DE_IMOVEIS": "Guia de Imóveis",
-  "CHATSLAIS": "ChatsLais",
+  "CHATSLAIS": "ChatsLais"
 }
 ```
 
@@ -99,16 +136,16 @@ Manual de Integração
 
 Repete os campos obrigatórios para um novo Lead e adiciona obrigatoriamente os campos listados abaixo.
 
-- **scheduling_date**, data e hora da solicitação de agendamento,  *YYYY-MM-DD HH:MM:SS*
-- **scheduling_type**, código do tipo de agendamento (Visita, Fotos, etc), opções são obtidas através do endpoint ***SchedulingTypes***
+- **scheduling_date**, data e hora da solicitação de agendamento, _YYYY-MM-DD HH:MM:SS_
+- **scheduling_type**, código do tipo de agendamento (Visita, Fotos, etc), opções são obtidas através do endpoint **_SchedulingTypes_**
 
 ## Retornos da aplicação
 
 | Status | Descrição                                 |
-| -----: | ------------------------------------------- |
-|    201 | Sucesso                                     |
+| -----: | ----------------------------------------- |
+|    201 | Sucesso                                   |
 |    40x | Problemas na validação dos dados enviados |
-|    50x | Problema de Token ou Problema Genérico     |
+|    50x | Problema de Token ou Problema Genérico    |
 
 ## Exemplo CURL | Novo Lead
 
@@ -136,33 +173,33 @@ curl -X POST \
 
 ```javascript
 var data = {
-   "id": "1598457",
-   "origin_id": "GRUPOZAP",
-   "created_at": "2019-01-01 15:59:59",
-   "name": "João da Silva",
-   "email": "joao@meusite.com.br",
-   "phone": "+55 11 3030-2020",
-   "mobile": "+55 11 98080-8080",
-   "property_id": "NI1234",
-   "message": "Olá vi o imóvel NI1234 no seu site",
-   "broker": "corretor@imobiliaria.com.br",
-};
+  id: '1598457',
+  origin_id: 'GRUPOZAP',
+  created_at: '2019-01-01 15:59:59',
+  name: 'João da Silva',
+  email: 'joao@meusite.com.br',
+  phone: '+55 11 3030-2020',
+  mobile: '+55 11 98080-8080',
+  property_id: 'NI1234',
+  message: 'Olá vi o imóvel NI1234 no seu site',
+  broker: 'corretor@imobiliaria.com.br',
+}
 
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+var xhr = new XMLHttpRequest()
+xhr.withCredentials = true
 
-xhr.addEventListener("readystatechange", function () {
+xhr.addEventListener('readystatechange', function () {
   if (this.readyState === 4) {
-    console.log(this.responseText);
+    console.log(this.responseText)
   }
-});
+})
 
-xhr.open("POST", "__ENDPOINT_CLIENTE__");
-xhr.setRequestHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
-xhr.setRequestHeader("User-Agent", "Nido/1.0.0");
-xhr.setRequestHeader("Content-Type", "application/json");
+xhr.open('POST', '__ENDPOINT_CLIENTE__')
+xhr.setRequestHeader('Authorization', 'Bearer __TOKEN_CLIENTE__')
+xhr.setRequestHeader('User-Agent', 'Nido/1.0.0')
+xhr.setRequestHeader('Content-Type', 'application/json')
 
-xhr.send(JSON.stringify(data));
+xhr.send(JSON.stringify(data))
 ```
 
 ## Exemplo PHP | Novo Lead
@@ -256,34 +293,34 @@ curl -X POST \
 
 ```javascript
 var data = {
-   "id": "1598457",
-   "origin_id": "GRUPOZAP",
-   "created_at": "2019-01-01 15:59:59",
-   "name": "João da Silva",
-   "email": "joao@meusite.com.br",
-   "phone": "+55 11 3030-2020",
-   "mobile": "+55 11 98080-8080",
-   "property_id": "NI1234",
-   "message": "Olá vi o imóvel NI1234 no seu site",
-   "scheduling_date": "2022-01-10 10:15:00",
-   "scheduling_type": "1"
-};
+  id: '1598457',
+  origin_id: 'GRUPOZAP',
+  created_at: '2019-01-01 15:59:59',
+  name: 'João da Silva',
+  email: 'joao@meusite.com.br',
+  phone: '+55 11 3030-2020',
+  mobile: '+55 11 98080-8080',
+  property_id: 'NI1234',
+  message: 'Olá vi o imóvel NI1234 no seu site',
+  scheduling_date: '2022-01-10 10:15:00',
+  scheduling_type: '1',
+}
 
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+var xhr = new XMLHttpRequest()
+xhr.withCredentials = true
 
-xhr.addEventListener("readystatechange", function () {
+xhr.addEventListener('readystatechange', function () {
   if (this.readyState === 4) {
-    console.log(this.responseText);
+    console.log(this.responseText)
   }
-});
+})
 
-xhr.open("POST", "__ENDPOINT_CLIENTE__");
-xhr.setRequestHeader("Authorization", "Bearer __TOKEN_CLIENTE__");
-xhr.setRequestHeader("User-Agent", "Nido/1.0.0");
-xhr.setRequestHeader("Content-Type", "application/json");
+xhr.open('POST', '__ENDPOINT_CLIENTE__')
+xhr.setRequestHeader('Authorization', 'Bearer __TOKEN_CLIENTE__')
+xhr.setRequestHeader('User-Agent', 'Nido/1.0.0')
+xhr.setRequestHeader('Content-Type', 'application/json')
 
-xhr.send(JSON.stringify(data));
+xhr.send(JSON.stringify(data))
 ```
 
 ## Exemplo PHP | Nova solicitação Agendamento
